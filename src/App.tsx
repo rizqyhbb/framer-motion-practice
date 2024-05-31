@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 const gridContainerVariants = {
   hidden: {
@@ -14,6 +14,7 @@ const gridContainerVariants = {
 
 const gridChildVariants = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 function App() {
+  const { scrollYProgress: scrollCompletion } = useScroll();
   return (
     <motion.div
       className="grid grid-cols-3 gap-4 p-4"
@@ -93,10 +94,18 @@ function App() {
           dragTransition={{ bounceDamping: 10, bounceStiffness: 600 }}
         />
       </motion.div>
+      {/* scroll progression */}
       <motion.div
         variants={gridChildVariants}
         className="aspect-square bg-slate-800 border-none flex justify-center items-center rounded-lg"
-      />
+      >
+        <motion.div className="w-40 h-1/2 bg-gray-50/20 rounded-xl">
+          <motion.div
+            className="w-full bg-gray-400 rounded-xl h-full origin-bottom"
+            style={{ scaleY: scrollCompletion }}
+          />
+        </motion.div>
+      </motion.div>
       <motion.div
         variants={gridChildVariants}
         className="aspect-square bg-slate-800 border-none flex justify-center items-center rounded-lg"
