@@ -81,10 +81,18 @@ function App() {
           subscribe
         </motion.button>
       </motion.div>
+      {/* drag */}
       <motion.div
         variants={gridChildVariants}
         className="aspect-square bg-slate-800 border-none flex justify-center items-center rounded-lg"
-      />
+      >
+        <motion.div
+          className="w-1/4 h-1/4 bg-orange-600 rounded-3xl cursor-grab"
+          drag
+          dragConstraints={{ top: -125, right: 125, bottom: 125, left: -125 }}
+          dragTransition={{ bounceDamping: 10, bounceStiffness: 600 }}
+        />
+      </motion.div>
       <motion.div
         variants={gridChildVariants}
         className="aspect-square bg-slate-800 border-none flex justify-center items-center rounded-lg"
