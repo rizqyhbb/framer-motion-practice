@@ -67,10 +67,20 @@ function App() {
           }}
         />
       </motion.div>
+      {/* button */}
       <motion.div
         variants={gridChildVariants}
         className="aspect-square bg-slate-800 border-none flex justify-center items-center rounded-lg"
-      />
+      >
+        <motion.button
+          className="bg-emerald-600 py-4 px-9 rounded-lg text-lg text-gray-100 font-semibold tracking-wide"
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ bounceDamping: 1000, bounceStiffness: 600 }}
+        >
+          subscribe
+        </motion.button>
+      </motion.div>
       <motion.div
         variants={gridChildVariants}
         className="aspect-square bg-slate-800 border-none flex justify-center items-center rounded-lg"
