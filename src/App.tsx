@@ -25,6 +25,7 @@ function App() {
         variants={gridChildVariants}
         className="aspect-square bg-slate-800 border-none flex justify-center items-center rounded-lg gap-4"
       >
+        {/* fade up and down */}
         <motion.div
           className="w-20 h-20 bg-slate-300 rounded-md"
           initial={{ opacity: 0, y: 100 }}
@@ -45,10 +46,27 @@ function App() {
           }}
         />
       </motion.div>
+      {/* shape shifting */}
       <motion.div
         variants={gridChildVariants}
         className="aspect-square bg-slate-800 border-none flex justify-center items-center rounded-lg"
-      />
+      >
+        <motion.div
+          className="h-44 w-44 bg-slate-300 rounded-lg"
+          animate={{
+            scale: [1, 2, 2, 1],
+            rotate: [0, 90, 90, 0],
+            borderRadius: ["10%", "10%", "50%", "10%"],
+          }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+            // repeat: Infinity, for infinity animation
+            repeat: 2,
+            repeatDelay: 0.5,
+          }}
+        />
+      </motion.div>
       <motion.div
         variants={gridChildVariants}
         className="aspect-square bg-slate-800 border-none flex justify-center items-center rounded-lg"
